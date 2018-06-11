@@ -1,6 +1,6 @@
 # Nanosnap
 
-Small getting screenshots of websites.
+Small service for getting screenshots of websites. 
 
 ## Install
 
