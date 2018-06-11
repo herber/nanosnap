@@ -1,0 +1,42 @@
+{
+	"name": "nanosnap",
+	"version": "0.0.0",
+	"description": "Small getting screenshots of websites",
+	"license": "MIT",
+	"repository": "herber/nanosnap",
+	"author": {
+		"name": "Tobias Herber",
+		"email": "tobihrbr@gmail.com",
+		"url": "https://tobihrbr.com"
+	},
+	"bin": "cli.js",
+	"engines": {
+		"node": "8"
+	},
+	"scripts": {
+		"test": "formatted"
+	},
+	"files": [
+		"src",
+		"cli.js"
+	],
+	"keywords": [
+		"cli-app",
+		"cli",
+		"chrome",
+		"screenshot",
+		"website",
+		"webpage",
+		"site"
+	],
+	"dependencies": {
+		"cors": "^2.8.4",
+		"express": "^4.16.3",
+		"memory-cache": "^0.2.0",
+		"mri": "^1.1.1",
+		"puppeteer": "^1.5.0"
+	},
+	"devDependencies": {
+		"formatted": "^1.0.0"
+	}
+}
