@@ -20,8 +20,6 @@ module.exports = async (url, newOpts) => {
     }
   };
 
-  console.log(conf);
-
   const browser = await puppeteer.launch({
     headless: true,
     args: ['--disable-gpu', '--no-sandbox', '--disable-setuid-sandbox']
