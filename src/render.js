@@ -1,27 +1,26 @@
 const puppeteer = require('puppeteer');
 
 module.exports = async (url, newOpts) => {
-  const opts = {
+  const conf = {
     viewport: {
-      width: 1200,
-      height: 950
+      width: Number(newOpts.width) || 1200,
+      height: Number(newOpts.height) || 950
     },
     screenshot: {
-      width: 1200,
-      height: 950
+      width: Number(newOpts.width) || 1200,
+      height: Number(newOpts.height) || 950
     },
     render: {
-      delay: 0,
+      delay: newOpts.delay || 0,
       scrollToBottom: false,
       screen: false
     },
     navigate: {
-      waitUntil: 'networkidle',
-      networkIdleTimeout: 1000
+      waitUntil: 'networkidle0'
     }
   };
 
-  const conf = Object.assign(opts, newOpts);
+  console.log(conf);
 
   const browser = await puppeteer.launch({
     headless: true,
