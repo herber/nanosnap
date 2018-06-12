@@ -1,6 +1,6 @@
 {
 	"name": "nanosnap",
-	"version": "0.0.0",
+	"version": "1.1.0",
 	"description": "Small service for getting screenshots of websites",
 	"license": "MIT",
 	"repository": "herber/nanosnap",
