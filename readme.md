@@ -1,6 +1,6 @@
 # Nanosnap
 
-Small service for getting screenshots of websites. 
+A simple micorservice for taking screenshots of websites.
 
 ## Install
 
@@ -16,7 +16,7 @@ $ npm install nanosnap
 nanosnap
 ```
 
-### Get a screenshot
+### Take a screenshot
 
 ```
 https://<instance-url>/?url=<url>[&width=<width>&height=<height>&delay=<delay>]
