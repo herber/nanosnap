@@ -16,4 +16,4 @@ const parsed = mri(args, {
 
 server(parsed.port);
 
-console.log('🎉 Listening to port: ' + parsed.port);
+console.log('🎉  Listening to port: ' + parsed.port);
