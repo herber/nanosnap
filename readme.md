@@ -19,8 +19,17 @@ nanosnap
 ### Get a screenshot
 
 ```
-https://<instance-url>/?url=https://google.com
+https://<instance-url>/?url=<url>[&width=<width>&height=<height>&delay=<delay>]
 ```
+
+#### Options
+
+| Name   | Default | Description                     | Optional |
+| -----  | ------- | ------------------------------- | -------- |
+| url    | `null`  | The website's url               | ✖       |
+| width  | `1200`  | The screenshot's width          | ✔       |
+| height | `950`   | The screenshot's height         | ✔       |
+| delay  | `0`     | Delay after the network is idle | ✔       |
 
 ## CLI
 
