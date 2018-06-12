@@ -11,7 +11,7 @@ module.exports = port => {
   app.get('/', async (req, res) => {
     res.type('.png');
 
-    const c = cache.get(req.query.url);
+    const c = cache.get(JSON.stringify(req.query));
 
     if (c !== null) {
       res.send(c);
@@ -19,7 +19,7 @@ module.exports = port => {
       const screenshot = await render(req.query.url || 'https://notfound.tobihrbr.gq', req.query);
 
       res.send(screenshot);
-      cache.put(req.query.url, screenshot, 50000);
+      cache.put(JSON.stringify(req.query), screenshot, 50000);
     }
   });
 
