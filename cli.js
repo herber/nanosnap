@@ -5,6 +5,8 @@ const server = require('./src/server');
 
 const args = process.argv.slice(2);
 
+require('events').EventEmitter.defaultMaxListeners = 200;
+
 const parsed = mri(args, {
   alias: {
     port: 'port'
