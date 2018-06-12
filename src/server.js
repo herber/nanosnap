@@ -9,17 +9,38 @@ module.exports = port => {
   app.use(cors());
 
   app.get('/', async (req, res) => {
-    res.type('.png');
+    if (req.query.url != null) {
+      res.type('.png');
 
-    const c = cache.get(JSON.stringify(req.query));
-
-    if (c !== null) {
-      res.send(c);
+      const c = cache.get(JSON.stringify(req.query));
+  
+      if (c !== null) {
+        res.send(c);
+      } else {
+        const screenshot = await render(req.query.url || 'https://notfound.tobihrbr.gq', req.query);
+  
+        res.send(screenshot);
+        cache.put(JSON.stringify(req.query), screenshot, 50000);
+      }
     } else {
-      const screenshot = await render(req.query.url || 'https://notfound.tobihrbr.gq', req.query);
-
-      res.send(screenshot);
-      cache.put(JSON.stringify(req.query), screenshot, 50000);
+      res.send(`
+        <html>
+          <head>
+            <title>Nanosnap</title>
+            <style>
+              body {
+                text-align: center;
+                font-family: sans-serif;
+                margin-top: 40vh;
+              }
+            </style>
+          </head>
+          <body>
+            <h1>Nanosnap</h1>
+            <p>A simple micorservice for taking screenshots of websites.</p>
+          </body>
+        </html>
+      `)
     }
   });
 
