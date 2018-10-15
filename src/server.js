@@ -13,12 +13,12 @@ module.exports = port => {
       res.type('.png');
 
       const c = cache.get(JSON.stringify(req.query));
-  
+
       if (c !== null) {
         res.send(c);
       } else {
         const screenshot = await render(req.query.url || 'https://notfound.tobihrbr.gq', req.query);
-  
+
         res.send(screenshot);
         cache.put(JSON.stringify(req.query), screenshot, 50000);
       }
@@ -40,8 +40,17 @@ module.exports = port => {
             <p>A simple micorservice for taking screenshots of websites.</p>
           </body>
         </html>
-      `)
+      `);
     }
+  });
+
+  process.on('uncaughtException', error => {
+    if (error.errno === 'EADDRINUSE') {
+      console.log(`Port ${port} is already in use.`);
+    } else {
+      console.log(error);
+    }
+    process.exit(1);
   });
 
   app.listen(port);
